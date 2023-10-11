@@ -1,0 +1,23 @@
+package com.monisha.springboot.myfirstwebapp.login;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+//Request param,Model,logger
+
+@Controller
+public class LoginController {
+
+    private Logger logger=LoggerFactory.getLogger(getClass());
+    @RequestMapping("/login")
+    public String gotologinpage(@RequestParam String name, ModelMap model){
+        logger.debug("I want this to be printed at debug level");
+        logger.info("I want this printed at info");
+        model.put("displayname",name);
+        return "login";   //file name
+    }
+}
